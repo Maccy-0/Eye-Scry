@@ -21,6 +21,12 @@ public class PuzzleScenesLogic : MonoBehaviour
     public GameObject Book;
     public GameObject Deadpainting;
 
+    public GameObject Wand1;
+    public GameObject Wand2;
+    public GameObject Hat;
+    public GameObject Rack;
+    public ObjectMovementScript HatScript;
+
     public string currentMessage;
 
 
@@ -69,7 +75,42 @@ public class PuzzleScenesLogic : MonoBehaviour
             Book.SetActive(false);
             Deadpainting.SetActive(true);
         }
-
+        if (WandProgression == 0)
+        {
+            Wand1.SetActive(true);
+            Wand2.SetActive(false);
+            if (!HatScript.isSelected)
+            {
+                Hat.transform.position = new Vector2(2.5f, -2.5f);
+            }
+        }
+        if (WandProgression == 1)
+        {
+            Wand1.SetActive(true);
+            Wand2.SetActive(false);
+            if (!HatScript.isSelected)
+            {
+                Hat.transform.position = new Vector2(6.75f, 1.75f);
+            }
+        }
+        if (WandProgression == 2)
+        {
+            Wand1.SetActive(false);
+            Wand2.SetActive(true);
+            if (!HatScript.isSelected)
+            {
+                Hat.transform.position = new Vector2(6.75f, 1.75f);
+            }
+        }
+        if (WandProgression == 3)
+        {
+            Wand1.SetActive(false);
+            Wand2.SetActive(false);
+            if (!HatScript.isSelected)
+            {
+                Hat.transform.position = new Vector2(6.75f, 1.75f);
+            }
+        }
     }
 
     public void LoadTowerTop()
@@ -99,6 +140,19 @@ public class PuzzleScenesLogic : MonoBehaviour
         {
             BookProgression = 3;
             Debug.Log("Book got");
+        }
+        if (message == "Rack" && WandProgression == 0)
+        {
+            WandProgression = 1;
+        }
+        if (message == "Key0" && WandProgression == 1)
+        {
+            WandProgression = 2;
+        }
+        if (message == "Key1" && WandProgression == 2)
+        {
+            WandProgression = 3;
+            Debug.Log("Wand got");
         }
     }
 }
