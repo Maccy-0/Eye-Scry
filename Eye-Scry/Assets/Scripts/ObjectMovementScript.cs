@@ -85,6 +85,7 @@ public class ObjectMovementScript : MonoBehaviour
     {
         if (isGrabbable)
         {
+            Debug.Log("I see it");
             takeHold();
         }
     }
