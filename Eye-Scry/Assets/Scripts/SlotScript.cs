@@ -10,6 +10,8 @@ public class SlotScript : MonoBehaviour
     // If a slot needs a specific item, you can set it here via its associated integer
     public int objectType;
 
+    public string correctType;
+
     // Whether any type of object is allowed in. Set to true if any object can enter the slot.
     public bool ignoreType = false;
 
@@ -23,6 +25,7 @@ public class SlotScript : MonoBehaviour
 
     public CircleCollider2D selfCollider;
     private List<GameObject> detectedObjects = new List<GameObject>();
+    public PuzzleScenesLogic PuzzleScenesLogic;
 
     void Start()
     {
@@ -42,6 +45,7 @@ public class SlotScript : MonoBehaviour
         if(wantsToBeHeld != null && heldItem == null && wantsToBeHeld.submitToTaker == true)
         {
             Debug.Log("4 Alert");
+            PuzzleScenesLogic.readCurrentMessage(this.name);
             heldItem = wantsToBeHeld;
             wantsToBeHeld.GetSlotted(this);
             wantsToBeHeld.submitToTaker = false;
@@ -51,9 +55,10 @@ public class SlotScript : MonoBehaviour
     public void  OnTriggerStay2D(Collider2D collision)
     {
             // Gets the items in range and determines if it's ready to be slotted
-            if (heldItem == null && collision.gameObject.CompareTag("Object"))
+            if (heldItem == null && collision.gameObject.CompareTag(correctType))
             {
                 Debug.Log("1 Alert");
+
                 if (!detectedObjects.Contains(collision.gameObject))
                 {
                     Debug.Log("2 Alert");
