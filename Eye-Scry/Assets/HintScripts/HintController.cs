@@ -26,6 +26,8 @@ public class HintController : MonoBehaviour
     public GameObject imgHolderTwo;
     public GameObject imgHolderThree;
 
+    // Still needs a function to temporarily close the scry scene.
+
     private void Awake()
     {
         UpdateProgression();
