@@ -27,6 +27,8 @@ public class PuzzleScenesLogic : MonoBehaviour
     public GameObject Hat;
     public GameObject Rack;
     public ObjectMovementScript HatScript;
+    public Transform hatStart;
+    public Transform hatRack;
 
     public GameObject fakeRing;
     public GameObject realRing;
@@ -41,6 +43,11 @@ public class PuzzleScenesLogic : MonoBehaviour
     public ObjectMovementScript gem3;
     public ObjectMovementScript gem4;
     public ObjectMovementScript gem5;
+    public Transform gemslot1;
+    public Transform gemslot2;
+    public Transform gemslot3;
+    public Transform gemslot4;
+    public Transform gemslot5;
     public int[] gems = { 0, 0, 0, 0, 0 };
 
     public string currentMessage;
@@ -97,7 +104,7 @@ public class PuzzleScenesLogic : MonoBehaviour
             Wand2.SetActive(false);
             if (!HatScript.isSelected)
             {
-                Hat.transform.position = new Vector2(2.5f, -2.5f);
+                Hat.transform.position = hatStart.position;
             }
         }
         if (WandProgression == 1)
@@ -106,7 +113,7 @@ public class PuzzleScenesLogic : MonoBehaviour
             Wand2.SetActive(false);
             if (!HatScript.isSelected)
             {
-                Hat.transform.position = new Vector2(6.75f, 1.75f);
+                Hat.transform.position = hatRack.position;
             }
         }
         if (WandProgression == 2)
@@ -115,7 +122,7 @@ public class PuzzleScenesLogic : MonoBehaviour
             Wand2.SetActive(true);
             if (!HatScript.isSelected)
             {
-                Hat.transform.position = new Vector2(6.75f, 1.75f);
+                Hat.transform.position = hatRack.position;
             }
         }
         if (WandProgression == 3)
@@ -124,7 +131,7 @@ public class PuzzleScenesLogic : MonoBehaviour
             Wand2.SetActive(false);
             if (!HatScript.isSelected)
             {
-                Hat.transform.position = new Vector2(6.75f, 1.75f);
+                Hat.transform.position = hatRack.position;
             }
         }
         if (RingProgression == 0)
@@ -193,35 +200,35 @@ public class PuzzleScenesLogic : MonoBehaviour
             gems[0] = 1;
             gem1.thisRB.simulated = false;
             Destroy(gem1);
-            gem1obj.transform.position = new Vector2(-6f, 0.5f);
+            gem1obj.transform.position = gemslot1.position;
         }
         if (message == "2GemSlot" && RingProgression == 0)
         {
             gems[1] = 1;
             gem2.thisRB.simulated = false;
             Destroy(gem2);
-            gem2obj.transform.position = new Vector2(-5.5f, 0.5f);
+            gem2obj.transform.position = gemslot2.position;
         }
         if (message == "3GemSlot" && RingProgression == 0)
         {
             gems[2] = 1;
             gem3.thisRB.simulated = false;
             Destroy(gem3);
-            gem3obj.transform.position = new Vector2(-5f, 0.5f);
+            gem3obj.transform.position = gemslot3.position;
         }
         if (message == "4GemSlot" && RingProgression == 0)
         {
             gems[3] = 1;
             gem4.thisRB.simulated = false;
             Destroy(gem4);
-            gem4obj.transform.position = new Vector2(-4.5f, 0.5f);
+            gem4obj.transform.position = gemslot4.position;
         }
         if (message == "5GemSlot" && RingProgression == 0)
         {
             gems[4] = 1;
             gem5.thisRB.simulated = false;
             Destroy(gem5);
-            gem5obj.transform.position = new Vector2(-4f, 0.5f);
+            gem5obj.transform.position = gemslot5.position;
         }
         if (gems.Sum() == 5 && RingProgression == 0)
         {
