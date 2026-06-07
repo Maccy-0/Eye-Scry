@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class HintController : MonoBehaviour
 {
-    private PuzzleScenesLogic puzzleScenesLogic;
+    public PuzzleScenesLogic puzzleScenesLogic;
 
     private UnityEngine.SceneManagement.Scene scene;
 
@@ -26,6 +26,9 @@ public class HintController : MonoBehaviour
     public GameObject imgHolderTwo;
     public GameObject imgHolderThree;
 
+    public Canvas navCanvas;
+    public GameObject puzzleScreen;
+
     // Still needs a function to temporarily close the scry scene.
 
     private void Awake()
@@ -40,21 +43,19 @@ public class HintController : MonoBehaviour
         {
             UpdateProgression();
         }
-        
+
     }
 
     private void UpdateProgression()
     {
         if (GetComponentInParent<PuzzleScenesLogic>() != null)
         {
-            puzzleScenesLogic = GetComponent<PuzzleScenesLogic>();
-
             puzzleOneState = puzzleScenesLogic.WandProgression;
             puzzleTwoState = puzzleScenesLogic.RingProgression;
             puzzleThreeState = puzzleScenesLogic.BookProgression;
         }
 
-        if(puzzleOneState == oneFinishedValue)
+        if (puzzleOneState == oneFinishedValue)
         {
             // Put logic for disabling button here
             puzzleOneState = -1;
@@ -105,13 +106,27 @@ public class HintController : MonoBehaviour
         {
             // Sound hook close
             hintBox.SetActive(false);
+            ReturnScry();
+            navCanvas.gameObject.SetActive(true);
         }
         else
         {
             // Sound hook open
             hintBox.SetActive(true);
+            navCanvas.gameObject.SetActive(false);
+            ShrinkScry();
         }
         UpdateProgression();
+    }
+
+    public void ShrinkScry()
+    {
+        puzzleScreen.gameObject.transform.localScale = new Vector3(.2f,.2f,1f);
+    }
+
+    public void ReturnScry()
+    {
+        puzzleScreen.gameObject.transform.localScale = Vector3.one;
     }
 
 }
