@@ -1187,6 +1187,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Question Card
       objectReference: {fileID: 0}
+    - target: {fileID: 2297319977208766432, guid: ffd1dcbf25d7de941ad49aea378adcb1, type: 3}
+      propertyPath: m_text
+      value: No
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193536039518892115, guid: ffd1dcbf25d7de941ad49aea378adcb1, type: 3}
+      propertyPath: m_text
+      value: Yes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
