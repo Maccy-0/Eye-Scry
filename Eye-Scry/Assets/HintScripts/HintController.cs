@@ -13,8 +13,8 @@ public class HintController : MonoBehaviour
     private int puzzleThreeState;
 
     private int oneFinishedValue = 3;
-    private int twoFinishedValue;
-    private int threeFinishedValue;
+    private int twoFinishedValue = 3;
+    private int threeFinishedValue = 2;
 
     public GameObject hintBox;
 
@@ -60,6 +60,14 @@ public class HintController : MonoBehaviour
             // Put logic for disabling button here
             puzzleOneState = -1;
         }
+        if (puzzleTwoState == twoFinishedValue)
+        {
+            puzzleTwoState = -1;
+        }
+        if (puzzleThreeState == threeFinishedValue)
+        {
+            puzzleThreeState = -1;
+        }
     }
 
     public void WandHint()
@@ -92,11 +100,55 @@ public class HintController : MonoBehaviour
 
     public void RingHint()
     {
+        if (puzzleThreeState != -1)
+        {
+            // Strings to invoke a public function with, used to tell the wizard what to say
+            if (puzzleTwoState == 0)
+            {
+                // Bark One
 
+            }
+            else if (puzzleTwoState == 1)
+            {
+                // Bark Two
+
+            }
+            else if (puzzleTwoState == 2)
+            {
+                // Bark Three
+
+            }
+
+        }
     }
 
     public void BookHint()
     {
+
+        if (puzzleTwoState != -1)
+        {
+            // Strings to invoke a public function with, used to tell the wizard what to say
+            if (puzzleTwoState == 0)
+            {
+                // Bark One
+
+            }
+            else if (puzzleTwoState == 1)
+            {
+                // Bark Two
+
+            }
+            else if (puzzleTwoState == 2)
+            {
+                // Bark Three
+
+            }
+            else if (puzzleTwoState == 3)
+            {
+                // Bark Four
+
+            }
+        }
 
     }
 
