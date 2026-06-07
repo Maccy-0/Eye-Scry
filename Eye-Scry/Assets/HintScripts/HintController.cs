@@ -16,6 +16,16 @@ public class HintController : MonoBehaviour
     private int twoFinishedValue;
     private int threeFinishedValue;
 
+    public GameObject hintBox;
+
+    public Sprite objOneImg;
+    public Sprite objTwoImg;
+    public Sprite objThreeImg;
+
+    public GameObject imgHolderOne;
+    public GameObject imgHolderTwo;
+    public GameObject imgHolderThree;
+
     private void Awake()
     {
         UpdateProgression();
@@ -28,7 +38,6 @@ public class HintController : MonoBehaviour
         {
             UpdateProgression();
         }
-
         
     }
 
@@ -54,6 +63,7 @@ public class HintController : MonoBehaviour
     {
 
         if (puzzleOneState != -1) {
+            // Strings to invoke a public function with, used to tell the wizard what to say
             if (puzzleOneState == 0)
             {
                 // Bark One
@@ -85,6 +95,21 @@ public class HintController : MonoBehaviour
     public void BookHint()
     {
 
+    }
+
+    public void ToggleHints()
+    {
+        if (hintBox.activeSelf)
+        {
+            // Sound hook close
+            hintBox.SetActive(false);
+        }
+        else
+        {
+            // Sound hook open
+            hintBox.SetActive(true);
+        }
+        UpdateProgression();
     }
 
 }
