@@ -50,8 +50,11 @@ public class HintController : MonoBehaviour
     {
         if (GetComponentInParent<PuzzleScenesLogic>() != null)
         {
+            // 1
             puzzleOneState = puzzleScenesLogic.WandProgression;
+            // 3
             puzzleTwoState = puzzleScenesLogic.RingProgression;
+            // 2
             puzzleThreeState = puzzleScenesLogic.BookProgression;
         }
 
