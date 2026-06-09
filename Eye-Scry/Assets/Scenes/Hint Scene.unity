@@ -6163,6 +6163,23 @@ MonoBehaviour:
   imgHolderOne: {fileID: 1666038030}
   imgHolderTwo: {fileID: 686000820}
   imgHolderThree: {fileID: 169265793}
+  stringsWand:
+  - My magic wand?
+  - The last time I was using it was when I came home yesterday
+  - I was in such a rush that I didn't even hang my hat up properly
+  - Would you mind doing that as well for me?
+  stringsBook:
+  - Ah, my cursed ring
+  - "I won it in a game of Wyrm\u2019s Bluff"
+  - I remember locking it away so that no one would steal it
+  - I think the combination had to do with shapes,
+  - but it's just been so long since I used it...
+  stringsRing:
+  - The Grimoire?
+  - I remember that I hid it away so that the city guards wouldn't find it,
+  - but I forgot where.
+  - I remember that it was inside of a hidden passage behind something
+  - But what could be large enough to hide something like that?
   navCanvas: {fileID: 1687067483}
   puzzleScreen: {fileID: 2118975696}
 --- !u!1 &1744205426
