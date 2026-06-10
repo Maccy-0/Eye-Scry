@@ -23,11 +23,18 @@ public class HintController : MonoBehaviour
     public Sprite objThreeImg;
 
     public GameObject imgHolderOne;
-    public GameObject imgHolderTwo;
+    public GameObject imgHolderTwo; 
     public GameObject imgHolderThree;
+
+    public string[] hintOpen;
+    public string[] stringsWand;
+    public string[] stringsBook;
+    public string[] stringsRing;
 
     public Canvas navCanvas;
     public GameObject puzzleScreen;
+
+    public DialogLogic dialogLogic;
 
     // Still needs a function to temporarily close the scry scene.
 
@@ -73,86 +80,40 @@ public class HintController : MonoBehaviour
         }
     }
 
+    [ContextMenu("Wand")]
     public void WandHint()
     {
 
-        if (puzzleOneState != -1) {
-            // Strings to invoke a public function with, used to tell the wizard what to say
-            if (puzzleOneState == 0)
-            {
-                // Bark One
-
-            }
-            else if (puzzleOneState == 1)
-            {
-                // Bark Two
-
-            }
-            else if (puzzleOneState == 2)
-            {
-                // Bark Three
-
-            }
-            else if (puzzleOneState == 3)
-            {
-                // Bark Four
-
-            }
+        if (puzzleOneState != -1) 
+        {
+            dialogLogic.ReadThis(stringsWand);
         }
     }
 
-    public void RingHint()
+    [ContextMenu("Book")]
+    public void BookHint()
     {
         if (puzzleThreeState != -1)
         {
-            // Strings to invoke a public function with, used to tell the wizard what to say
-            if (puzzleTwoState == 0)
-            {
-                // Bark One
-
-            }
-            else if (puzzleTwoState == 1)
-            {
-                // Bark Two
-
-            }
-            else if (puzzleTwoState == 2)
-            {
-                // Bark Three
-
-            }
-
+            dialogLogic.ReadThis(stringsRing);
         }
     }
 
-    public void BookHint()
+    [ContextMenu("Ring")]
+    public void RingHint()
     {
 
         if (puzzleTwoState != -1)
         {
-            // Strings to invoke a public function with, used to tell the wizard what to say
-            if (puzzleTwoState == 0)
-            {
-                // Bark One
-
-            }
-            else if (puzzleTwoState == 1)
-            {
-                // Bark Two
-
-            }
-            else if (puzzleTwoState == 2)
-            {
-                // Bark Three
-
-            }
-            else if (puzzleTwoState == 3)
-            {
-                // Bark Four
-
-            }
+            dialogLogic.ReadThis(stringsBook);
         }
 
+    }
+
+    [ContextMenu("Open")]
+    public void OpenHint()
+    {
+        dialogLogic.ReadThis(hintOpen);
     }
 
     public void ToggleHints()
