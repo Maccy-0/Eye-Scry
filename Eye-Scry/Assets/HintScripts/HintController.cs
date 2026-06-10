@@ -26,12 +26,15 @@ public class HintController : MonoBehaviour
     public GameObject imgHolderTwo; 
     public GameObject imgHolderThree;
 
+    public string[] hintOpen;
     public string[] stringsWand;
     public string[] stringsBook;
     public string[] stringsRing;
 
     public Canvas navCanvas;
     public GameObject puzzleScreen;
+
+    public DialogLogic dialogLogic;
 
     // Still needs a function to temporarily close the scry scene.
 
@@ -77,31 +80,40 @@ public class HintController : MonoBehaviour
         }
     }
 
+    [ContextMenu("Wand")]
     public void WandHint()
     {
 
         if (puzzleOneState != -1) 
         {
-            // Strings to invoke a public function with, used to tell the wizard what to say
+            dialogLogic.ReadThis(stringsWand);
         }
     }
 
-    public void RingHint()
+    [ContextMenu("Book")]
+    public void BookHint()
     {
         if (puzzleThreeState != -1)
         {
-            // Strings to invoke a public function with, used to tell the wizard what to say
+            dialogLogic.ReadThis(stringsRing);
         }
     }
 
-    public void BookHint()
+    [ContextMenu("Ring")]
+    public void RingHint()
     {
 
         if (puzzleTwoState != -1)
         {
-            // Strings to invoke a public function with, used to tell the wizard what to say
+            dialogLogic.ReadThis(stringsBook);
         }
 
+    }
+
+    [ContextMenu("Open")]
+    public void OpenHint()
+    {
+        dialogLogic.ReadThis(hintOpen);
     }
 
     public void ToggleHints()
