@@ -64,6 +64,19 @@ public class PuzzleScenesLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 e = gem1obj.transform.eulerAngles;
+        gem1obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = gem2obj.transform.eulerAngles;
+        gem2obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = gem3obj.transform.eulerAngles;
+        gem3obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = gem4obj.transform.eulerAngles;
+        gem4obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = gem5obj.transform.eulerAngles;
+        gem5obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = Hat.transform.eulerAngles;
+        Hat.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+
         //Basement
         if (BookProgression == 0)
         {
@@ -144,13 +157,13 @@ public class PuzzleScenesLogic : MonoBehaviour
         {
             fakeRing.SetActive(false);
             realRing.SetActive(true);
-            ringContainer.SetActive(false);
+            //ringContainer.SetActive(false);
         }
         if (RingProgression == 2)
         {
             fakeRing.SetActive(false);
             realRing.SetActive(false);
-            ringContainer.SetActive(false);
+            //ringContainer.SetActive(false);
         }
     }
 
