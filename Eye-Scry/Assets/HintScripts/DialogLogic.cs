@@ -78,7 +78,7 @@ public class DialogLogic : MonoBehaviour
             }
             else
             {
-                yield return new WaitUntil(() => nextButton);
+                yield return new WaitUntil(() => nextButton || autoPlay);
                 nextButton = false;
             }
 
