@@ -19,6 +19,7 @@ public class PuzzleScenesLogic : MonoBehaviour
     public BoxCollider2D Pedistalbox;
     public Sprite Pedistal1;
     public Sprite Pedistal2;
+    public GameObject PedistalBot;
     public GameObject Book;
     public GameObject Deadpainting;
 
@@ -76,13 +77,18 @@ public class PuzzleScenesLogic : MonoBehaviour
         gem5obj.transform.eulerAngles = new Vector3(0f, 0f, e.y);
         e = Hat.transform.eulerAngles;
         Hat.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        //e = Torch.transform.eulerAngles;
+        //Torch.transform.eulerAngles = new Vector3(0f, 0f, e.y);
+        e = Rock.transform.eulerAngles;
+        Rock.transform.eulerAngles = new Vector3(0f, 0f, e.y);
 
         //Basement
         if (BookProgression == 0)
         {
             Painting.SetActive(true);
             Pedistal.SetActive(false);
-            //PedistalPicture.sprite = Pedistal1;
+            PedistalBot.SetActive(false);
+            PedistalPicture.sprite = Pedistal1;
             Book.SetActive(false);
             Deadpainting.SetActive(false);
         }
@@ -90,7 +96,8 @@ public class PuzzleScenesLogic : MonoBehaviour
         {
             Painting.SetActive(false);
             Pedistal.SetActive(true);
-            //PedistalPicture.sprite = Pedistal1;
+            PedistalBot.SetActive(true);
+            PedistalPicture.sprite = Pedistal1;
             Book.SetActive(false);
             Deadpainting.SetActive(true);
         }
@@ -99,7 +106,8 @@ public class PuzzleScenesLogic : MonoBehaviour
             Painting.SetActive(false);
             Pedistal.SetActive(true);
             Pedistalbox.enabled = false;
-            //PedistalPicture.sprite = Pedistal2;
+            PedistalBot.SetActive(true);
+            PedistalPicture.sprite = Pedistal2;
             Book.SetActive(true);
             Deadpainting.SetActive(true);
         }
@@ -107,7 +115,8 @@ public class PuzzleScenesLogic : MonoBehaviour
         {
             Painting.SetActive(false);
             Pedistal.SetActive(true);
-            //PedistalPicture.sprite = Pedistal2;
+            PedistalBot.SetActive(true);
+            PedistalPicture.sprite = Pedistal2;
             Book.SetActive(false);
             Deadpainting.SetActive(true);
         }
