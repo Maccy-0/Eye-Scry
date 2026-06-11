@@ -1311,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &320718257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6881,6 +6881,7 @@ MonoBehaviour:
   navCanvas: {fileID: 1687067483}
   puzzleScreen: {fileID: 2118975696}
   dialogLogic: {fileID: 1721575000}
+  panelText: {fileID: 320718256}
 --- !u!1 &1744205426
 GameObject:
   m_ObjectHideFlags: 0

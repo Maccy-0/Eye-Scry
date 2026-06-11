@@ -36,6 +36,8 @@ public class HintController : MonoBehaviour
 
     public DialogLogic dialogLogic;
 
+    public GameObject panelText;
+
     // Still needs a function to temporarily close the scry scene.
 
     private void Awake()
@@ -124,12 +126,14 @@ public class HintController : MonoBehaviour
             hintBox.SetActive(false);
             ReturnScry();
             navCanvas.gameObject.SetActive(true);
+            panelText.SetActive(false);
         }
         else
         {
             // Sound hook open
             hintBox.SetActive(true);
             navCanvas.gameObject.SetActive(false);
+            panelText.SetActive(true);
             ShrinkScry();
         }
         UpdateProgression();
