@@ -141,12 +141,12 @@ public class HintController : MonoBehaviour
 
     public void ShrinkScry()
     {
-        puzzleScreen.gameObject.transform.localScale = new Vector3(.2f,.2f,1f);
+        puzzleScreen.gameObject.SetActive(false);
     }
 
     public void ReturnScry()
     {
-        puzzleScreen.gameObject.transform.localScale = Vector3.one;
+        puzzleScreen.gameObject.SetActive(true);
     }
 
 }

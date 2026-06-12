@@ -110,8 +110,10 @@ public class DialogLogic : MonoBehaviour
         // Statements to read what the next inputs should be
     }
 
+    [ContextMenu("Start")]
     public void BeginTheGame()
     {
+        convoIndex = 0;
         hintBegin.SetActive(true);
         canvasBegin.SetActive(true);
         hintPanel.SetActive(false);
