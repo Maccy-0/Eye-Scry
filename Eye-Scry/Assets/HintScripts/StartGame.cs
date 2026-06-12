@@ -41,6 +41,7 @@ public class StartGame : MonoBehaviour
         backgroundTwo.SetActive(true);
         background.SetActive(true);
         menu.SetActive(true);
+        onBoradMen.SetActive(false);
     }
 
     public void OnboardMe()
