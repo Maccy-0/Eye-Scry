@@ -39,12 +39,6 @@ public class AccessibilityQuestionCard : MonoBehaviour
             case AccessibilityType.ColorSensitivity:
                 HandleColorSensitivity(isYes);
                 break;
-            case AccessibilityType.DyslexiaFonts:
-                HandleDyslexiaFonts(isYes);
-                break;
-            case AccessibilityType.AuditoryAssistance:
-                HandleAuditoryAssistance(isYes);
-                break;
         }
 
         if (manager != null)

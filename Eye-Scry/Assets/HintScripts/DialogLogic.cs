@@ -19,10 +19,21 @@ public class DialogLogic : MonoBehaviour
 
     private bool autoPlay = false;
 
+    public GameObject hintBegin;
+    public GameObject canvasBegin;
+    public GameObject hintPanel;
+
     private Coroutine dialogDisplay;
+
+    private int convoIndex = 0;
 
     // Need to have a for each loop read out each letter with delay, using the for int to keep track of the current character count compared to the strings full length.
     // once the string is finished, have a delay, then begin the next string if there is one.
+
+    private void Awake()
+    {
+        IntroQue();
+    }
 
     public void ReadThis(string[] textArray)
     {
@@ -37,7 +48,9 @@ public class DialogLogic : MonoBehaviour
     [ContextMenu("Intro")]
     public void IntroQue()
     {
+        convoIndex = 1;
         ReadThis(introduction);
+
     }
 
     [ContextMenu("Farewell")]
@@ -83,12 +96,25 @@ public class DialogLogic : MonoBehaviour
             }
 
         }
+        if(convoIndex == 1)
+        {
+            BeginTheGame();
+            convoIndex = 0;
+        }
+        
         dialogDisplay = null;
     }
 
     public void DialogFinished()
     {
         // Statements to read what the next inputs should be
+    }
+
+    public void BeginTheGame()
+    {
+        hintBegin.SetActive(true);
+        canvasBegin.SetActive(true);
+        hintPanel.SetActive(false);
     }
 
     }
